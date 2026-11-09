@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mukesh & Soundarya | Wedding Invitation</title>
+
+<meta name="theme-color" content="#080f20">
+<meta name="description" content="You are cordially invited to celebrate the wedding of Mukesh and Soundarya.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --navy: #080f20;
+    --navy-light: #111d35;
+    --gold: #d8b66a;
+    --gold-light: #f3dfac;
+    --ivory: #fffdf7;
+    --text: #28334a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at top, #1c2b4c 0%, #080f20 65%, #030711 100%);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: var(--ivory);
+}
+
+/* BACKGROUND EFFECTS */
+
+.background-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.glow-one {
+    background: #d8b66a;
+    top: -150px;
+    left: -100px;
+}
+
+.glow-two {
+    background: #385b9a;
+    bottom: -150px;
+    right: -100px;
+}
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold);
+    animation: sparkle linear infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translateY(105vh) scale(0);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* COVER SCREEN */
+
+#cover {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, #172847 0%, #080f20 70%);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    padding: 25px;
+}
+
+.cover-content {
+    width: 100%;
+    max-width: 500px;
+    animation: appear 1.5s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.top-label {
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+/* MONOGRAM */
+
+.monogram {
+    width: 145px;
+    height: 145px;
+    margin: 0 auto 35px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    box-shadow:
+        0 0 30px rgba(216,182,106,0.12),
+        inset 0 0 25px rgba(216,182,106,0.08);
+}
+
+.monogram::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(216,182,106,0.45);
+    border-radius: 50%;
+}
+
+.monogram span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--gold-light);
+    font-style: italic;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    line-height: 1;
+    letter-spacing: 0;
+    white-space: nowrap;
+
+    position: relative;
+    z-index: 2;
+}
+
+.cover-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 6vw, 39px);
+    color: var(--gold-light);
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #e4d9c0;
+    font-style: italic;
+    margin-bottom: 45px;
+}
+
+.open-button {
+    padding: 15px 35px;
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    background: linear-gradient(135deg, #f3dfac, #c6a254);
+    color: #111a2c;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 8px 30px rgba(216,182,106,0.2);
+}
+
+.open-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(216,182,106,0.4);
+}
+
+.cover-bottom {
+    margin-top: 35px;
+    color: #a9b0be;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* MAIN INVITATION */
+
+#invitation {
+    display: none;
+    width: min(92%, 520px);
+    max-height: 94vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 10;
+    background: var(--ivory);
+    color: var(--text);
+    padding: 15px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 25px 90px rgba(0,0,0,0.65);
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: 1s ease;
+}
+
+#invitation::-webkit-scrollbar {
+    width: 4px;
+}
+
+#invitation::-webkit-scrollbar-thumb {
+    background: var(--gold);
+}
+
+#invitation.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.card-inner {
+    border: 1px solid rgba(185,146,68,0.5);
+    padding: 35px 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* DECORATIVE CORNERS */
+
+.corner {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.8;
+}
+
+.top-left {
+    top: 8px;
+    left: 8px;
+    border-width: 2px 0 0 2px;
+}
+
+.top-right {
+    top: 8px;
+    right: 8px;
+    border-width: 2px 2px 0 0;
+}
+
+.bottom-left {
+    bottom: 8px;
+    left: 8px;
+    border-width: 0 0 2px 2px;
+}
+
+.bottom-right {
+    bottom: 8px;
+    right: 8px;
+    border-width: 0 2px 2px 0;
+}
+
+/* HEADER */
+
+.small-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #9a7938;
+    margin-bottom: 20px;
+}
+
+.royal-symbol {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.names {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 6vw, 34px);
+    font-weight: 600;
+    color: #14223e;
+    line-height: 1.4;
+}
+
+.names span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    font-style: italic;
+    color: #b9954b;
+    font-weight: 400;
+}
+
+/* PARENTS DETAILS */
+
+.parent-details {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.45;
+    color: #77705f;
+    font-weight: 500;
+    margin-top: 2px;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.parent-details span {
+    color: #a17e39;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto;
+    color: var(--gold);
+}
+
+.ornament::before,
+.ornament::after {
+    content: "";
+    height: 1px;
+    width: 65px;
+    background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.ornament::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+}
+
+.ornament span {
+    font-size: 15px;
+}
+
+/* MESSAGE */
+
+.invitation-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    line-height: 1.5;
+    color: #555;
+    padding: 0 8px;
+}
+
+.invitation-text strong {
+    color: #a17e39;
+    font-weight: 600;
+}
+
+/* EVENT CARDS */
+
+.section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #a17e39;
+    margin: 28px 0 16px;
+}
+
+.events {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.event {
+    position: relative;
+    padding: 20px 12px;
+    border: 1px solid rgba(185,146,68,0.4);
+    background: linear-gradient(135deg, #fffdf8, #f7f1e6);
+    transition: 0.4s;
+}
+
+.event:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.event-icon {
+    font-size: 21px;
+    color: #b9954b;
+    margin-bottom: 8px;
+}
+
+.event h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: #172641;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.event-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: #a17e39;
+}
+
+.event-time {
+    font-size: 11px;
+    color: #666;
+    margin-top: 7px;
+    letter-spacing: 1px;
+}
+
+/* VENUE */
+
+.venue {
+    margin-top: 25px;
+    padding: 22px 12px;
+    background: #f5f0e6;
+    border: 1px solid rgba(185,146,68,0.35);
+}
+
+.venue-label {
+    font-family: 'Cinzel', serif;
+    color: #a17e39;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.venue-name {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: #172641;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.venue-address {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.45;
+    color: #555;
+}
+
+.map-button {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 11px 23px;
+    text-decoration: none;
+    background: #172641;
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+.map-button:hover {
+    background: var(--gold);
+    color: #172641;
+}
+
+/* FOOTER */
+
+.footer-divider {
+    margin: 25px auto 15px;
+}
+
+.footer-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #4e5360;
+    line-height: 1.5;
+}
+
+.footer-signature {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: #a17e39;
+    margin-top: 17px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.footer-small {
+    margin-top: 25px;
+    font-size: 8px;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 400px) {
+
+    .card-inner {
+        padding: 30px 12px;
+    }
+
+    .names {
+        font-size: 25px;
+    }
+
+    .parent-details {
+        font-size: 16px;
+    }
+
+    .venue-address {
+        font-size: 17px;
+    }
+
+    .event-date {
+        font-size: 21px;
+    }
+
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<div id="particles"></div>
+
+<!-- COVER SCREEN -->
+
+<section id="cover">
+
+    <div class="cover-content">
+
+        <div class="top-label">
+            Together With Their Families
+        </div>
+
+        <div class="monogram">
+            <span>M &amp; S</span>
+        </div>
+
+        <h1 class="cover-title">
+            You're Invited
+        </h1>
+
+        <p class="cover-subtitle">
+            A Celebration of Love & Togetherness
+        </p>
+
+        <button class="open-button" onclick="openInvitation()">
+            OPEN INVITATION &nbsp; ✦
+        </button>
+
+        <div class="cover-bottom">
+            Mukesh & Soundarya
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN INVITATION -->
+
+<main id="invitation">
+
+    <div class="card-inner">
+
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <div class="small-heading">
+            The Wedding Celebration
+        </div>
+
+        <div class="royal-symbol">
+            M & S
+        </div>
+
+        <!-- GROOM NAME -->
+
+        <h1 class="names">
+            MUKESH
+        </h1>
+
+        <div class="parent-details">
+            <span>SON OF</span>
+            A. Parthiban &amp; Manjula
+        </div>
+
+        <div class="ornament">
+            <span>✦</span>
+        </div>
+
+        <!-- BRIDE NAME -->
+
+        <h1 class="names">
+            SOUNDARYA
+        </h1>
+
+        <div class="parent-details">
+            <span>DAUGHTER OF</span>
+            K. Siva Shankar &amp; Suriyakala
+        </div>
+
+        <div class="ornament">
+            <span>✦</span>
+        </div>
+
+        <!-- INVITATION MESSAGE -->
+
+        <p class="invitation-text">
+            With the blessings of our families,
+            we joyfully invite you to celebrate
+            the beginning of our beautiful journey together.
+            <br><br>
+            Your gracious presence and blessings
+            will make our special moments
+            truly <strong>memorable.</strong>
+        </p>
+
+        <!-- EVENTS -->
+
+        <div class="section-label">
+            SAVE THE DATES
+        </div>
+
+        <div class="events">
+
+            <div class="event">
+
+                <div class="event-icon">✧</div>
+
+                <h3>WEDDING RECEPTION</h3>
+
+                <div class="event-date">
+                    28th November 2026
+                </div>
+
+                <div class="event-time">
+                    SATURDAY &nbsp; | &nbsp; 6:30 PM ONWARDS
+                </div>
+
+            </div>
+
+            <div class="event">
+
+                <div class="event-icon">✦</div>
+
+                <h3>MARRIAGE · MUHURTHAM</h3>
+
+                <div class="event-date">
+                    29th November 2026
+                </div>
+
+                <div class="event-time">
+                    SUNDAY &nbsp; | &nbsp; 7:30 AM ONWARDS
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- VENUE -->
+
+        <div class="venue">
+
+            <div class="venue-label">
+                THE CELEBRATION VENUE
+            </div>
+
+            <div class="venue-name">
+                SHUBHAM CONVENTION HALL
+            </div>
+
+            <div class="venue-address">
+                97, Kadalur Mudugarai Salai,<br>
+                Nelvoy Palayam Junction,<br>
+                Pachambakkam,<br>
+                Tamil Nadu – 603312.
+            </div>
+
+            <a
+                href="https://maps.app.goo.gl/ucg2VifSqhRjTTzr7"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-button">
+
+                VIEW LOCATION &nbsp; ↗
+
+            </a>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="ornament footer-divider">
+            <span>✦</span>
+        </div>
+
+        <p class="footer-message">
+            We look forward to celebrating
+            these beautiful moments with you.
+        </p>
+
+        <div class="footer-signature">
+            WITH LOVE,<br><br>
+            MUKESH &amp; SOUNDARYA
+        </div>
+
+        <div class="footer-small">
+            A New Beginning · A Lifetime Together
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/* GOLDEN PARTICLE GENERATOR */
+
+const particleContainer = document.getElementById("particles");
+
+const particleCount = 40;
+
+for (let i = 0; i < particleCount; i++) {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    const size = Math.random() * 3 + 1;
+
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+
+    particle.style.left = Math.random() * 100 + "vw";
+
+    particle.style.animationDuration =
+        (Math.random() * 12 + 8) + "s";
+
+    particle.style.animationDelay =
+        (Math.random() * 10) + "s";
+
+    particleContainer.appendChild(particle);
+
+}
+
+
+/* OPEN INVITATION ANIMATION */
+
+function openInvitation() {
+
+    const cover = document.getElementById("cover");
+
+    const invitation = document.getElementById("invitation");
+
+    cover.style.opacity = "0";
+
+    cover.style.transform = "scale(1.08)";
+
+    cover.style.pointerEvents = "none";
+
+    setTimeout(() => {
+
+        cover.style.display = "none";
+
+        invitation.style.display = "block";
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                invitation.classList.add("show");
+
+            });
+
+        });
+
+    }, 1000);
+
+}
+
+</script>
+
+</body>
+</html>
